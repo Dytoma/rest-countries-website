@@ -1,0 +1,32 @@
+.dark body {
+  background-color: hsl(207, 26%, 17%);
+}
+
+.search-bar {
+  padding: 0;
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+.country-detail {
+  width: 35rem;
+  height: 25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img {
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+}
+
+
+
+@media screen and (max-width: 767px) {
+  .country-detail {
+    height: 12.375rem;
+  }
+}
