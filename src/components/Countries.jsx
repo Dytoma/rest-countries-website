@@ -94,7 +94,7 @@ const Countries = () => {
         </Paper>
       </Stack>
 
-      {countries ? <All countries={countriesPerRegion ? countriesPerRegion : countries} /> : <Box sx={{ display: 'flex' }}><CircularProgress /></Box>}
+      <All countries={countriesPerRegion ? countriesPerRegion : countries} /> 
 
     </Box>
   )
