@@ -12,16 +12,10 @@
 .country-detail {
   width: 35rem;
   height: 25rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.img {
-  min-width: 100%;
-  min-height: 100%;
   object-fit: cover;
 }
+
+
 
 
 

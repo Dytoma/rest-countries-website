@@ -11,7 +11,7 @@ const CountryCard = ({ country }) => {
 
   const { darkMode } = useContext(AppContext)
   return (
-    <motion.div variants={Item}>
+    <motion.div variants={Item} >
       <Card sx={{ maxWidth: '16.5rem', background: darkMode ? 'hsl(209, 23%, 22%)' : '#fff' }}>
         <Link to={`/countries/${country?.name?.common}`}>
           <CardMedia

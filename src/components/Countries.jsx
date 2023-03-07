@@ -24,13 +24,19 @@ const Countries = () => {
   useEffect(() => {
     fetchFromAPI('all').then((data) => setCountries(data))
   }, [])
-
+  
   useEffect(() => {
-    fetchFromAPI(`region/${region}`).then((data) => setCountriesPerRegion(data));
+    if(region) {
+      
+      fetchFromAPI(`region/${region}`).then((data) => setCountriesPerRegion(data));
+    }
   }, [region])
 
+
   const handleChange = (e) => {
+
     setRegion(e.target.value)
+
   }
 
   const handleSubmit = (e) => {
@@ -44,6 +50,9 @@ const Countries = () => {
     }
 
   }
+
+  console.log(countries);
+  console.log(countriesPerRegion)
   return (
     <Box sx={{ marginInline: { md: '3rem', lg: '5rem', xs: '1rem' } }}>
       <Stack
@@ -94,7 +103,7 @@ const Countries = () => {
         </Paper>
       </Stack>
 
-      <All countries={countriesPerRegion ? countriesPerRegion : countries} /> 
+      {countries || countriesPerRegion ? <All countries={countriesPerRegion ? countriesPerRegion : countries} /> : <Box sx={{ display: 'flex' }}><CircularProgress /></Box>}
 
     </Box>
   )

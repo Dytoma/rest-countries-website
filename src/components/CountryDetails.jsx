@@ -42,11 +42,10 @@ const CountryDetails = () => {
   if (!countryDetail?.languages) return <Box sx={{ display: 'flex' }}><CircularProgress /></Box>
 
   const languages = Object.values(countryDetail?.languages);
-  console.log(languages)
 
 
-    const borders = countryDetail?.borders;
-  
+  const borders = countryDetail?.borders;
+
 
   return (
     <Box sx={{ marginInline: { md: '3rem', lg: '5rem', xs: '1rem' } }}>
@@ -66,7 +65,7 @@ const CountryDetails = () => {
       >
         {countryDetail ?
           <>
-            <Box className='country-detail img-container'><img src={countryDetail?.flags?.svg} className='img' /></Box>
+            <img src={countryDetail?.flags?.svg} className='country-detail' />
             <Box sx={{ flex: '1' }}>
               <Typography sx={{ fontFamily: 'Nunito Sans', fontWeight: '700', fontSize: '1.25rem', letterSpacing: '-0.065em', mt: { md: 0, xs: '2.5rem', color: darkMode ? 'white' : '#111517' } }} variant='subtitle1'>{countryDetail?.name?.common}</Typography>
               <Stack
@@ -98,7 +97,7 @@ const CountryDetails = () => {
 
                 <Box sx={{ marginBlock: { md: 0, xs: '2.5rem' } }}>
                   <Typography variant='subtitle2' sx={{ color: darkMode ? 'white' : '#111517', fontFamily: 'Nunito Sans' }}>
-                    <span style={{ fontSize: '1rem', letterSpacing: '-0.065em', fontWeight: '600', color: darkMode ? 'white' : '#111517' }}>Top Level Domain:</span> {countryDetail?.tld[0]}
+                    <span style={{ fontSize: '1rem', letterSpacing: '-0.065em', fontWeight: '600', color: darkMode ? 'white' : '#111517' }}>Top Level Domain:</span> {countryDetail?.tld ? countryDetail?.tld[0] : ''}
                   </Typography>
                   <Typography variant='subtitle2' sx={{ color: darkMode ? 'white' : '#111517', fontFamily: 'Nunito Sans' }}>
                     <span style={{ fontSize: '1rem', letterSpacing: '-0.065em', fontWeight: '600', color: darkMode ? 'white' : '#111517' }}>Currencies:</span> {currencies.map((currency) => (`${currency?.name} `))}

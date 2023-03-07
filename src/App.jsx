@@ -29,7 +29,7 @@ function App() {
   return (
     <>
       <AppContext.Provider value={value}>
-        <Typography sx={{ position: 'absolute', color: darkMode ? 'white' : '#111517', fontSize: "1rem", top: '0.2rem', display: 'flex', alignItems: 'center', justifyContent: 'center', left: 0, right: 0, marginInline: 'auto'}}>
+        <Typography sx={{ position: 'absolute', color: darkMode ? 'white' : '#111517', fontSize: "1rem", top: '0.2rem', display: 'flex', alignItems: 'center', justifyContent: 'center', left: 0, right: 0, marginInline: 'auto' }}>
           Coded by <a href="https://www.frontendmentor.io/profile/Dytoma" style={{ color: 'hsl(243, 100%, 62%)', textDecoration: 'none' }}>Dytoma</a>.
         </Typography>
         <Navbar />
