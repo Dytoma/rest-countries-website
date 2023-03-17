@@ -42,8 +42,8 @@ These are some screenshots of the final website.
 
 ### Links
 
-- Solution URL: [Solution URL here](https://your-solution-url.com)
-- Live Site URL: [Live site URL here](https://your-live-site-url.com)
+- Solution URL: [Solution URL here](https://www.frontendmentor.io/solutions/rest-countries-api-using-vite-react-material-ui-and-framer-motion-0iAkaE7wMU)
+- Live Site URL: [Live site URL here](https://rest-countries-website.vercel.app/)
 
 ## My process
 
