@@ -45,6 +45,7 @@ const Navbar = () => {
                       localStorage.setItem("theme", "light");
                     }
                   }}
+                  aria-label='Light theme'
                 >
                   <BiSun />
                 </button> : 
@@ -58,6 +59,7 @@ const Navbar = () => {
                       localStorage.setItem("theme", "light");
                     }
                   }}
+                  aria-label='Dark theme'
                 >
                   <BsMoon />
                 </button>

@@ -26,7 +26,7 @@ const Search = () => {
       <Typography variant='subtitle2' sx={{ color: darkMode ? 'white' : '#111517', fontFamily: 'Nunito Sans', marginBlock: { md: '3rem', xs: '1.5rem' } }}>
         <span style={{ fontSize: '1rem', letterSpacing: '-0.065em', fontWeight: '600' }}>Search resullts for:</span> {searchTerm}
       </Typography>
-      <Link to='/'>
+      <Link to='/' aria-label='home page'>
         <Paper sx={{ display: 'inline-block', gap: '8px', marginBlock: { md: '3rem', xs: '1.5rem' }, paddingInline: '1.5rem', background: darkMode ? 'hsl(209, 23%, 22%)' : 'white' }} elevation={2}>
           <IconButton sx={{ pl: 0, color: darkMode ? 'white' : '#111517' }}>
             <MdOutlineKeyboardBackspace />
