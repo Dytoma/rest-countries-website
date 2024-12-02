@@ -15,6 +15,7 @@ const Countries = () => {
   const [region, setRegion] = useState("");
   const [countries, setCountries] = useState(null);
   const [countriesPerRegion, setCountriesPerRegion] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   const [countryName, setCountryName] = useState('');
 
   const { darkMode } = useContext(AppContext);
@@ -22,13 +23,22 @@ const Countries = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetchFromAPI('all').then((data) => setCountries(data))
+    (async () => {
+      setIsLoading(true);
+      const data = await fetchFromAPI('all');
+      setCountries(data);
+      setIsLoading(false);
+    })();
   }, [])
-  
+
   useEffect(() => {
-    if(region) {
-      
-      fetchFromAPI(`region/${region}`).then((data) => setCountriesPerRegion(data));
+    if (region) {
+      (async () => {
+        setIsLoading(true);
+        const data = await fetchFromAPI(`region/${region}`);
+        setCountriesPerRegion(data);
+        setIsLoading(false);
+      })();
     }
   }, [region])
 
@@ -103,7 +113,9 @@ const Countries = () => {
         </Paper>
       </Stack>
 
-      {countries || countriesPerRegion ? <All countries={countriesPerRegion ? countriesPerRegion : countries} /> : <Box sx={{ display: 'flex' }}><CircularProgress /></Box>}
+      {isLoading && <Box sx={{ display: 'flex' }}><CircularProgress /></Box>}
+      {!isLoading && (!countries && !countriesPerRegion) && (<Box sx={{ display: 'flex' }}>Something went wrong, select a region.</Box>)}
+      {(countries || countriesPerRegion) && <All countries={countriesPerRegion ? countriesPerRegion : countries} />}
 
     </Box>
   )
