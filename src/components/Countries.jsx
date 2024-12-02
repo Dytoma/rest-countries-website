@@ -115,7 +115,7 @@ const Countries = () => {
 
       {isLoading && <Box sx={{ display: 'flex' }}><CircularProgress /></Box>}
       {!isLoading && (!countries && !countriesPerRegion) && (<Box sx={{ display: 'flex' }}>Something went wrong, select a region.</Box>)}
-      {(countries || countriesPerRegion) && <All countries={countriesPerRegion ? countriesPerRegion : countries} />}
+      {(countries || countriesPerRegion) && <All countries={countriesPerRegion || countries || []} />}
 
     </Box>
   )
