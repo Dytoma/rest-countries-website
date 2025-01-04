@@ -26,16 +26,16 @@ const Countries = () => {
     (async () => {
       setIsLoading(true);
       const [
+        europeCountries,
         africaCountries,
         americaCountries,
         asiaCountries,
-        europeCountries,
         oceaniaCountries
       ] = await Promise.all([
+        fetchFromAPI(`region/europe`),
         fetchFromAPI(`region/africa`),
         fetchFromAPI(`region/america`),
         fetchFromAPI(`region/asia`),
-        fetchFromAPI(`region/europe`),
         fetchFromAPI(`region/oceania`)
       ])
       setCountries([
@@ -60,8 +60,6 @@ const Countries = () => {
     }
   }, [region])
 
-  console.log('loading', isLoading);
-
 
   const handleChange = (e) => {
 
@@ -81,8 +79,6 @@ const Countries = () => {
 
   }
 
-  console.log(countries);
-  console.log(countriesPerRegion)
   return (
     <Box sx={{ marginInline: { md: '3rem', lg: '5rem', xs: '1rem' } }}>
       <Stack

@@ -16,8 +16,6 @@ const CountryDetails = () => {
   const { country } = useParams()
   useEffect(() => {
     fetchFromAPI(`name/${country}`).then((data) => setCountryDetail(data[0]));
-
-    console.log(countryDetail)
   }, [country])
 
   // first check if the object names is not null or undefined
