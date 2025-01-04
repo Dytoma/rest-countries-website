@@ -25,8 +25,26 @@ const Countries = () => {
   useEffect(() => {
     (async () => {
       setIsLoading(true);
-      const data = await fetchFromAPI('all');
-      setCountries(data);
+      const [
+        africaCountries,
+        americaCountries,
+        asiaCountries,
+        europeCountries,
+        oceaniaCountries
+      ] = await Promise.all([
+        fetchFromAPI(`region/africa`),
+        fetchFromAPI(`region/america`),
+        fetchFromAPI(`region/asia`),
+        fetchFromAPI(`region/europe`),
+        fetchFromAPI(`region/oceania`)
+      ])
+      setCountries([
+        ...africaCountries,
+        ...americaCountries,
+        ...asiaCountries,
+        ...europeCountries,
+        ...oceaniaCountries
+      ]);
       setIsLoading(false);
     })();
   }, [])
@@ -41,6 +59,8 @@ const Countries = () => {
       })();
     }
   }, [region])
+
+  console.log('loading', isLoading);
 
 
   const handleChange = (e) => {
